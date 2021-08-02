@@ -77,10 +77,10 @@ Shader "Unlit/SuikaLit"
                     irradiance += PhysicalBasedLighting(surfaceData, materialData, light);
                 }
                 Light light = GetAdditionalLight(0, i.positionWS, half4(1, 1, 1, 1));
-                half4 debug = half4(light.shadowAttenuation,light.shadowAttenuation,light.shadowAttenuation, 1.0);
+                half4 debug = half4(materialData.metallic,materialData.metallic,materialData.metallic, 1.0);
                 // half4 debug = half4(shadowCoord, 1.0);
                 irradiance += surfaceData.emission;
-                return half4(irradiance, 1);
+                return half4(irradiance, 1.0);
             }
             ENDHLSL
         }
