@@ -1,125 +1,73 @@
 Using pre-set license
-Built from '2020.3/china_unity/release' branch; Version is '2020.3.14f1c1 (ed787cdc2846) revision 15562876'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19042.1110; Version 2009; 64bit' Language: 'zh' Physical Memory: 49101 MB
+Built from '2020.3/china_unity/release' branch; Version is '2020.3.13f1c1 (93b9df9a3ddc) revision 9681375'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.928; Version 2009; 64bit' Language: 'zh' Physical Memory: 32542 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-D:\Unity\2020.3.14f1c1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2020.3.13f1c1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-G:/GraphicProject/ShaderFramework
+E:/Unity_Projects/ShaderFramework
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54864
-Successfully changed project path to: G:/GraphicProject/ShaderFramework
-G:/GraphicProject/ShaderFramework
+64059
+Successfully changed project path to: E:/Unity_Projects/ShaderFramework
+E:/Unity_Projects/ShaderFramework
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 48.36 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 47.20 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2020.3.14f1c1 (ed787cdc2846)
-[Subsystems] Discovering subsystems at path D:/Unity/2020.3.14f1c1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path G:/GraphicProject/ShaderFramework/Assets
+Initialize engine version: 2020.3.13f1c1 (93b9df9a3ddc)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/Unity_Projects/ShaderFramework/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 2070 SUPER (ID=0x1e84)
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f08)
     Vendor:   
-    VRAM:     8011 MB
-    Driver:   27.21.14.6089
+    VRAM:     5980 MB
+    Driver:   27.21.14.6192
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
-Mono path[0] = 'D:/Unity/2020.3.14f1c1/Editor/Data/Managed'
-Mono path[1] = 'D:/Unity/2020.3.14f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'D:/Unity/2020.3.14f1c1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56260
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56540
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: D:/Unity/2020.3.14f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.000790 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001142 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 51.29 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 53.43 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.612 seconds
-Domain Reload Profiling:
-	ReloadAssembly (612ms)
-		BeginReloadAssembly (39ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (0ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (348ms)
-			LoadAssemblies (38ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (119ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (25ms)
-			SetupLoadedEditorAssemblies (149ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (51ms)
-				BeforeProcessingInitializeOnLoad (11ms)
-				ProcessInitializeOnLoadAttributes (61ms)
-				ProcessInitializeOnLoadMethodAttributes (22ms)
-				AfterProcessingInitializeOnLoad (0ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (0ms)
+- Completed reload, in  1.433 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002027 seconds.
+Registered in 0.003265 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 50.90 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 49.08 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.896 seconds
-Domain Reload Profiling:
-	ReloadAssembly (896ms)
-		BeginReloadAssembly (115ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (14ms)
-		EndReloadAssembly (734ms)
-			LoadAssemblies (66ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (245ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (39ms)
-			SetupLoadedEditorAssemblies (282ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (51ms)
-				BeforeProcessingInitializeOnLoad (73ms)
-				ProcessInitializeOnLoadAttributes (149ms)
-				ProcessInitializeOnLoadMethodAttributes (3ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+- Completed reload, in  0.909 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2696 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 122.4 MB.
-System memory in use after: 122.6 MB.
+Unloading 2698 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 122.2 MB.
+System memory in use after: 122.4 MB.
 
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 3130.
-Total: 2.043600 ms (FindLiveObjects: 0.238200 ms CreateObjectMapping: 0.070200 ms MarkObjects: 1.675700 ms  DeleteObjects: 0.058700 ms)
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 3135.
+Total: 2.208200 ms (FindLiveObjects: 0.201900 ms CreateObjectMapping: 0.098200 ms MarkObjects: 1.858200 ms  DeleteObjects: 0.049200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -133,248 +81,256 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/SuikaShaderFramework
-  artifactKey: Guid(17217237fa0c5734cbfaa8168aeb3acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework using Guid(17217237fa0c5734cbfaa8168aeb3acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85ffa1a7ebeab00b3bacbbe7e2727cfe') in 0.004407 seconds 
-  Import took 0.021420 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000214 seconds.
-  path: Assets/SuikaShaderFramework/Sample.unity
-  artifactKey: Guid(23b1495092fe09f4db1694def6267815) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Sample.unity using Guid(23b1495092fe09f4db1694def6267815) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe12bdf48851f87b2efcaadaddfee5d0') in 0.009355 seconds 
-  Import took 0.012625 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 69.328303 seconds.
-  path: Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_diff.jpg
-  artifactKey: Guid(901f7da87901f9148b693c9bf28e7dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_diff.jpg using Guid(901f7da87901f9148b693c9bf28e7dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8feebfc6aa962ac515a58dc2f365ac28') in 0.052382 seconds 
-  Import took 0.068089 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000237 seconds.
-  path: Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_glow.jpg
-  artifactKey: Guid(984428b106dd15a429c2fb00f322e0c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_glow.jpg using Guid(984428b106dd15a429c2fb00f322e0c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6783cc8697c5654303e4eb382d9bbed1') in 0.018597 seconds 
-  Import took 0.023268 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000293 seconds.
-  path: Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_diff.jpg
-  artifactKey: Guid(901f7da87901f9148b693c9bf28e7dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_diff.jpg using Guid(901f7da87901f9148b693c9bf28e7dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8feebfc6aa962ac515a58dc2f365ac28') in 0.011363 seconds 
-  Import took 0.015432 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000215 seconds.
-  path: Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_norm.jpg
-  artifactKey: Guid(540d392baac9e114f8c94eb85809c5a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_norm.jpg using Guid(540d392baac9e114f8c94eb85809c5a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c83b1085743a0bf7bc57edcc1b25c49') in 0.040398 seconds 
-  Import took 0.044947 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.005125 seconds.
-  path: Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_norm.jpg
-  artifactKey: Guid(540d392baac9e114f8c94eb85809c5a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Resources/Texture/Centaur/body_norm.jpg using Guid(540d392baac9e114f8c94eb85809c5a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c83b1085743a0bf7bc57edcc1b25c49') in 0.023954 seconds 
-  Import took 0.028857 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 25.592840 seconds.
-  path: Assets/SuikaShaderFramework/Shader
-  artifactKey: Guid(874f80261a4371b4fa8bbeb3cfa36a78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Shader using Guid(874f80261a4371b4fa8bbeb3cfa36a78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfe4bd642fa0d17ec292f72266e3efae') in 0.001639 seconds 
-  Import took 0.005248 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2962.514374 seconds.
-  path: Assets/ExampleAssets/Materials/PaintLabel_Mat.mat
-  artifactKey: Guid(3da4aad06945bbf4baf801c2aacbc01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/PaintLabel_Mat.mat using Guid(3da4aad06945bbf4baf801c2aacbc01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca01ceb4eb556d0ed358bd3991acbb79') in 0.436206 seconds 
-  Import took 0.440487 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000229 seconds.
-  path: Assets/ExampleAssets/Materials/Strap_Mat.mat
-  artifactKey: Guid(81c1860e7800e5340bf8a54c565ba9ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/Strap_Mat.mat using Guid(81c1860e7800e5340bf8a54c565ba9ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd11d901728203bf674ad767953a8988a') in 0.349968 seconds 
-  Import took 0.353215 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000219 seconds.
-  path: Assets/ExampleAssets/Models/safetygoggles_low.fbx
-  artifactKey: Guid(6296e48663fd7ad46b1a2af507f871cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models/safetygoggles_low.fbx using Guid(6296e48663fd7ad46b1a2af507f871cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd91edf6a67a9a13c6876e34fbbfacdce') in 0.426776 seconds 
-  Import took 0.430043 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000214 seconds.
-  path: Assets/ExampleAssets/Materials/Plastic_Rough_Mat.mat
-  artifactKey: Guid(a5aaee4111611af43b5abbff184fe5fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/Plastic_Rough_Mat.mat using Guid(a5aaee4111611af43b5abbff184fe5fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53e2c7bb62751deaa49229dd8ecd8d69') in 0.079295 seconds 
-  Import took 0.082524 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000218 seconds.
-  path: Assets/SuikaShaderFramework/Resources/Mesh/girl_complete_03.obj
-  artifactKey: Guid(600fb938419204944a62180d91d18d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Resources/Mesh/girl_complete_03.obj using Guid(600fb938419204944a62180d91d18d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc6764b1740f10cab2f63cf5ba2128b8') in 0.247552 seconds 
-  Import took 0.251899 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000216 seconds.
-  path: Assets/ExampleAssets/Models/magneticlevel_low.fbx
-  artifactKey: Guid(bae110eee250e4b418b188f4ae4e3170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models/magneticlevel_low.fbx using Guid(bae110eee250e4b418b188f4ae4e3170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2e76e6fd8da9e87599faf346ac753bd') in 0.049302 seconds 
-  Import took 0.052663 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000239 seconds.
-  path: Assets/ExampleAssets/Materials/Plastic_Transparent.mat
-  artifactKey: Guid(8a38b7350df9a9c438e568993a00e5c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/Plastic_Transparent.mat using Guid(8a38b7350df9a9c438e568993a00e5c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1a2c4911732ab1895e6bb4c6d382814') in 0.021150 seconds 
-  Import took 0.024418 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000320 seconds.
   path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev.fbx
   artifactKey: Guid(6e3fe028f547dde4ea5a52a56a703d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev.fbx using Guid(6e3fe028f547dde4ea5a52a56a703d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e97cdd9ea5fc07ac098bf1834734a2f') in 0.952546 seconds 
-  Import took 0.961507 seconds .
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev.fbx using Guid(6e3fe028f547dde4ea5a52a56a703d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2f0d421510f1065fd7e59456f0afb7a') in 0.961216 seconds 
+  Import took 0.965454 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000326 seconds.
-  path: Assets/ExampleAssets/Materials/Plastic_Yellow_Mat.mat
-  artifactKey: Guid(bd2d742ee2ce7a740ae0cf992a38be74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/Plastic_Yellow_Mat.mat using Guid(bd2d742ee2ce7a740ae0cf992a38be74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0aea970df37e5b06ea24b2775ed3d76') in 0.254923 seconds 
-  Import took 0.258922 seconds .
+  Time since last request: 48.974576 seconds.
+  path: Assets/SuikaShaderFramework/Material/LittleNightmare/body.mat
+  artifactKey: Guid(399a5ddb635163b4d8e4a826ed9efe1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Material/LittleNightmare/body.mat using Guid(399a5ddb635163b4d8e4a826ed9efe1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb47c545ce19eb7100506cd068a88400') in 0.032670 seconds 
+  Import took 0.036667 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000332 seconds.
-  path: Assets/ExampleAssets/Models/paintbucket_low.fbx
-  artifactKey: Guid(b451a052397f03c4f8a04d915d1c0492) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models/paintbucket_low.fbx using Guid(b451a052397f03c4f8a04d915d1c0492) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77d5d7a1885669b649b28e71b0d8208f') in 0.079940 seconds 
-  Import took 0.083776 seconds .
+  Time since last request: 0.000274 seconds.
+  path: Assets/SuikaShaderFramework/Material/LittleNightmare/coat.mat
+  artifactKey: Guid(b31052d536dd90d409e71c9d8abc4730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Material/LittleNightmare/coat.mat using Guid(b31052d536dd90d409e71c9d8abc4730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bac800e2238b3c034e237647146c5e1') in 0.026135 seconds 
+  Import took 0.029913 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000232 seconds.
-  path: Assets/Materials/Skybox_Mat.mat
-  artifactKey: Guid(0ffaa0b7117ba8c47a9d05ae701d4b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Skybox_Mat.mat using Guid(0ffaa0b7117ba8c47a9d05ae701d4b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1e587b2d9f39b4a8da249a6a8f56a44') in 0.082888 seconds 
-  Import took 0.086350 seconds .
+  Time since last request: 0.000251 seconds.
+  path: Assets/SuikaShaderFramework/Material/LittleNightmare/body.mat
+  artifactKey: Guid(399a5ddb635163b4d8e4a826ed9efe1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Material/LittleNightmare/body.mat using Guid(399a5ddb635163b4d8e4a826ed9efe1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb47c545ce19eb7100506cd068a88400') in 0.021461 seconds 
+  Import took 0.025133 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000224 seconds.
-  path: Assets/ExampleAssets/Materials/Plastic_Gray_Mat.mat
-  artifactKey: Guid(4dad30bbe2213eb4d8312f7bb6190866) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/Plastic_Gray_Mat.mat using Guid(4dad30bbe2213eb4d8312f7bb6190866) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23117dde90db9f21084cd1fc1c8e73a5') in 0.007752 seconds 
-  Import took 0.011664 seconds .
+  Time since last request: 0.000247 seconds.
+  path: Assets/SuikaShaderFramework/Material/LittleNightmare/coat.mat
+  artifactKey: Guid(b31052d536dd90d409e71c9d8abc4730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Material/LittleNightmare/coat.mat using Guid(b31052d536dd90d409e71c9d8abc4730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bac800e2238b3c034e237647146c5e1') in 0.017551 seconds 
+  Import took 0.020972 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000300 seconds.
-  path: Assets/SuikaShaderFramework/Material/LittleNightmare/suitacase1.mat
-  artifactKey: Guid(4e2fe676f4c288c40a7987aa44ca71e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Material/LittleNightmare/suitacase1.mat using Guid(4e2fe676f4c288c40a7987aa44ca71e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f70063fd5ad4a51ec0d622d2f2d0c0c') in 0.025385 seconds 
-  Import took 0.029292 seconds .
+  Time since last request: 174.337103 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62919a9ae320be095bb4410fbc1550ee') in 0.382304 seconds 
+  Import took 0.386946 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000336 seconds.
-  path: Assets/ExampleAssets/Models/Workbench.fbx
-  artifactKey: Guid(efe9381559c516743bd05cef82f39ebb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models/Workbench.fbx using Guid(efe9381559c516743bd05cef82f39ebb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fff753a3d607ad0b6b80fa6fe182f4e5') in 0.116151 seconds 
-  Import took 0.119931 seconds .
+  Time since last request: 114.142714 seconds.
+  path: Assets/Plugins/Wolf3D/RPM Avatar Pack/Materials/Female_05_Glasses.mat
+  artifactKey: Guid(c77bb14403549764ea67f00576ee7dae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Wolf3D/RPM Avatar Pack/Materials/Female_05_Glasses.mat using Guid(c77bb14403549764ea67f00576ee7dae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '359d650472c8d4faa1abd6f817f28fba') in 0.240414 seconds 
+  Import took 0.243897 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000320 seconds.
-  path: Assets/ExampleAssets/Materials/Plastic_Black_Mat.mat
-  artifactKey: Guid(e745492728544aa488aa0429b6068e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/Plastic_Black_Mat.mat using Guid(e745492728544aa488aa0429b6068e71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de61db4033a54834e2c2cf435677b20a') in 0.007864 seconds 
-  Import took 0.011661 seconds .
+  Time since last request: 0.000269 seconds.
+  path: Assets/Plugins/Wolf3D/RPM Avatar Pack/Materials/Male_03_Glasses.mat
+  artifactKey: Guid(e8707e5375e1ebf4c8da558457fe8825) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Wolf3D/RPM Avatar Pack/Materials/Male_03_Glasses.mat using Guid(e8707e5375e1ebf4c8da558457fe8825) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cec181d60554ddd2f71b27d6dcbb9d42') in 0.013720 seconds 
+  Import took 0.016813 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000223 seconds.
-  path: Assets/ExampleAssets/Materials/Plastic_Ridges_Mat.mat
-  artifactKey: Guid(c05de7c865075334786e6a47a543af72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/Plastic_Ridges_Mat.mat using Guid(c05de7c865075334786e6a47a543af72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68f6dfe0076d024dda000f84058488aa') in 0.107912 seconds 
-  Import took 0.111461 seconds .
+  Time since last request: 0.000286 seconds.
+  path: Assets/Plugins/Wolf3D/RPM Avatar Pack/Materials/Ground.mat
+  artifactKey: Guid(e57c7db151ba9c54da4d484b6de73b1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Wolf3D/RPM Avatar Pack/Materials/Ground.mat using Guid(e57c7db151ba9c54da4d484b6de73b1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '591cd5786894633bdf9435a6bf81214b') in 0.014741 seconds 
+  Import took 0.018437 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000260 seconds.
-  path: Assets/SuikaShaderFramework/Material/LittleNightmare/window.mat
-  artifactKey: Guid(667059cf453cebf419ea99af47770a68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Material/LittleNightmare/window.mat using Guid(667059cf453cebf419ea99af47770a68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cb2289de8531b152ef04a740adc546b') in 0.008149 seconds 
-  Import took 0.011662 seconds .
+  Time since last request: 452.673493 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'addc9e1a7ffb408b7882ea18188099c1') in 0.062133 seconds 
+  Import took 0.066702 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000217 seconds.
-  path: Assets/ExampleAssets/Materials/Plastic_White_Mat.mat
-  artifactKey: Guid(6cfe423139c361a459da7ed9831d4b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/Plastic_White_Mat.mat using Guid(6cfe423139c361a459da7ed9831d4b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b844c92f2d1db720ee5117df0c6da6d') in 0.007585 seconds 
-  Import took 0.010945 seconds .
+  Time since last request: 9.143831 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '314d8cdceb4a39dc0cd7cfc322567c7d') in 0.052388 seconds 
+  Import took 0.056110 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000284 seconds.
-  path: Assets/Plugins/Wolf3D/RPM Avatar Pack/Materials/Teeth.mat
-  artifactKey: Guid(46854f9218c656d4893058b6d8248e7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/Wolf3D/RPM Avatar Pack/Materials/Teeth.mat using Guid(46854f9218c656d4893058b6d8248e7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0964f6332a7e4708294b9dcc4312c9f') in 0.007933 seconds 
-  Import took 0.011782 seconds .
+  Time since last request: 36.290417 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e09971c39af168d5fcf953c5cbdab3e3') in 0.044342 seconds 
+  Import took 0.048031 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000266 seconds.
-  path: Assets/ExampleAssets/Materials/Stud_Mat.mat
-  artifactKey: Guid(027cb3d3d7dc79d41ad763e01759de07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Materials/Stud_Mat.mat using Guid(027cb3d3d7dc79d41ad763e01759de07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '148c8c44127857bd68a2fa0cbb860f6a') in 0.096769 seconds 
-  Import took 0.100556 seconds .
+  Time since last request: 8.643724 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9217bcce149c713773ee6e18ac2af54') in 0.045983 seconds 
+  Import took 0.049624 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000268 seconds.
-  path: Assets/ExampleAssets/Models/Workbench_Low.fbx
-  artifactKey: Guid(ff6dc36862fe41641bb21568d92147c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models/Workbench_Low.fbx using Guid(ff6dc36862fe41641bb21568d92147c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '171e4c309d05ad5587a5190352fca0ff') in 0.090330 seconds 
-  Import took 0.094034 seconds .
+  Time since last request: 11.460777 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5cddd1ac9cde16a0fa38f536485312a') in 0.050183 seconds 
+  Import took 0.053987 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000258 seconds.
-  path: Assets/ExampleAssets/Models/safetyhat_low.fbx
-  artifactKey: Guid(9d0d902f71acfe646a46cb625f815a49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models/safetyhat_low.fbx using Guid(9d0d902f71acfe646a46cb625f815a49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b6d2420235b81f18b1d2a35be8b553e') in 0.026470 seconds 
-  Import took 0.030259 seconds .
+  Time since last request: 0.000758 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5cddd1ac9cde16a0fa38f536485312a') in 0.044803 seconds 
+  Import took 0.048479 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000254 seconds.
-  path: Assets/SuikaShaderFramework/Material/LittleNightmare/suitacase.mat
-  artifactKey: Guid(9d1894e1346e2be40a49dcfa859ac0b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SuikaShaderFramework/Material/LittleNightmare/suitacase.mat using Guid(9d1894e1346e2be40a49dcfa859ac0b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f57e06d980f639bdcc583b9afe3bb5b') in 0.006846 seconds 
-  Import took 0.010713 seconds .
+  Time since last request: 74.504930 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c26ef60c678ad5b55f187137eb8b9511') in 0.100984 seconds 
+  Import took 0.105377 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.782634 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c732bafc0a7a96a4350a09892f489dcf') in 0.044132 seconds 
+  Import took 0.048219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.725414 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69c9eb6c510b963014f3d0bced4decd8') in 0.066139 seconds 
+  Import took 0.071199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.352193 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fea9f83d02b6234465aa5af0f7872409') in 0.072239 seconds 
+  Import took 0.075965 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.824382 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56cb2413e6771d8641d4e1ee1a50fb6a') in 0.042064 seconds 
+  Import took 0.045708 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.663356 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8fd17e8c97ee3e4d01e323723f89882') in 0.089879 seconds 
+  Import took 0.093421 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.631215 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c80eb15e5caacce8c2ee5d2b922c2f19') in 0.066773 seconds 
+  Import took 0.070278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.226007 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44b7edf84ad030668d1046b42e863419') in 0.059894 seconds 
+  Import took 0.063448 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.573389 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48d451bdfee6ce776f9dd658eb2af6b0') in 0.056381 seconds 
+  Import took 0.059904 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.691204 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de8f288a9af0ab65a1cfc69a7ea540a2') in 0.043564 seconds 
+  Import took 0.047351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.481175 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cff8c8557acf1020907389c50308012e') in 0.078676 seconds 
+  Import took 0.082442 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.081899 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cef876bafd1fa455a8e8eb0950cc99e') in 0.090716 seconds 
+  Import took 0.094358 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.133922 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7a5c46d611284d4ca821054860c7a11') in 0.043794 seconds 
+  Import took 0.047512 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.207703 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bf3399bd7095fa3ec2b4da678b3303f') in 0.051291 seconds 
+  Import took 0.055152 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.421479 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0051e87e3e829c2aa779434bff81dc32') in 0.044086 seconds 
+  Import took 0.047963 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.946812 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14163d10fc63df099719ca964d645edc') in 0.057648 seconds 
+  Import took 0.061376 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.626280 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx
+  artifactKey: Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/LN2_VisDev - 副本.fbx using Guid(aa91e9a67b7e6c547bafdfda7f931384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '078516c90b3f1510705c921465aaef93') in 0.057604 seconds 
+  Import took 0.061210 seconds .
 

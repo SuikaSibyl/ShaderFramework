@@ -9,35 +9,36 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Deprecated.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/SurfaceData.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl"
+
+#include "SuikaBRDF.hlsl"
 
 ///////////////////////////////////////////////////////////////////////////////
 //                          Light Helpers                                    //
 ///////////////////////////////////////////////////////////////////////////////
-
-// Abstraction over Light shading data.
-struct Light
+struct SuikaSurfaceData
 {
-    half3   direction;
-    half3   color;
-    half    distanceAttenuation;
-    half    shadowAttenuation;
+    half3 normalWS;
+    half3 viewDirWS;
+    half3 bakedGI;
+    half3 emission;
 };
 
-///////////////////////////////////////////////////////////////////////////////
-//                      Light Abstraction                                    //
-///////////////////////////////////////////////////////////////////////////////
-
-Light GetMainLight()
+struct SuikaMaterialData
 {
-    Light light;
-    light.direction = _MainLightPosition.xyz;
-    light.distanceAttenuation = unity_LightData.z; // unity_LightData.z is 1 when not culled by the culling mask, otherwise 0.
-    light.shadowAttenuation = 1.0;
-    light.color = _MainLightColor.rgb;
+    half4 albedo;
+    half  smoothness;
+    half  metallic;
+    half  roughness;
 
-    return light;
-}
+    half3 diffuse;
+};
+
+struct SuikaBRDFData
+{
+
+};
 
 struct appdata
 {
@@ -45,23 +46,31 @@ struct appdata
     float4 tangent : TANGENT;
     float3 normal : NORMAL;
     float2 uv : TEXCOORD0;
+    float2 lightmapUV : TEXCOORD1;
 };
 
 struct v2f
 {
     float2 uv : TEXCOORD0;
+    DECLARE_LIGHTMAP_OR_SH(lightmapUV, vertexSH, 1);
+
     float4 vertex : SV_POSITION;
     
-    // SHADOW_COORDS(1)
-    float3 worldPos : TEXCOORD2;
-    float3 worldNormal : TEXCOORD3;
-    float3 worldViewDir : TEXCOORD4;
-    float3 lightDir : TEXCOORD5;
+    float3 positionWS   : TEXCOORD2;
+    float3 viewDirWS    : TEXCOORD3;
+    float4 shadowCoord  : TEXCOORD4;
 
     half3 tspace0 : TEXCOORD6;
     half3 tspace1 : TEXCOORD7;
     half3 tspace2 : TEXCOORD8;
 };
+
+Light GetMainLight(v2f i)
+{
+    float4 shadowCoord = TransformWorldToShadowCoord(i.positionWS);
+    Light  mainLight = GetMainLight(i.shadowCoord);
+    return mainLight;
+}
 
 // ===========================================================
 // Vertex Shader Functions
@@ -95,7 +104,7 @@ half3 NormalTangentToWorld(half3 tNormal, v2f i)
     wNormal.x = dot(i.tspace0, tNormal);
     wNormal.y = dot(i.tspace1, tNormal);
     wNormal.z = dot(i.tspace2, tNormal);
-    return wNormal;
+    return normalize(wNormal);
 }
 
 half3 WorldNormal(v2f i)
@@ -105,5 +114,73 @@ half3 WorldNormal(v2f i)
     return wNormal;
 }
 
+SuikaSurfaceData InitializeSuikaSurfaceData(v2f i)
+{
+    SuikaSurfaceData surfaceData;
+    surfaceData.normalWS = WorldNormal(i);
+    surfaceData.viewDirWS = normalize(i.viewDirWS);
+    surfaceData.bakedGI = SAMPLE_GI(i.lightmapUV, i.vertexSH, surfaceData.normalWS);
+    surfaceData.emission = tex2D(_GlowTex, i.uv).rgb;
+
+    return surfaceData;
+}
+
+SuikaMaterialData InitializeSuikaMaterialData(v2f i)
+{
+    SuikaMaterialData materialData;
+    materialData.albedo = tex2D(_MainTex, i.uv) * _BaseColor;
+    materialData.metallic = _Metallic;
+    materialData.smoothness = _Smoothness;
+    materialData.roughness = 1 - materialData.smoothness;
+
+    half oneMinusReflectivity = OneMinusReflectivityMetallic(materialData.metallic);
+    materialData.diffuse = materialData.albedo * oneMinusReflectivity;
+
+    return materialData;
+}
+
+half3 GlobalIllumination(
+    SuikaSurfaceData surfaceData,
+    SuikaMaterialData materialData)
+{
+    half occlusion= 1;
+    half3 indirectDiffuse = surfaceData.bakedGI * occlusion;
+    half3 irradiance = materialData.diffuse * indirectDiffuse;
+
+    return irradiance;
+}
+half3 PhysicalBasedLighting(
+    SuikaSurfaceData surfaceData,
+    SuikaMaterialData materialData,
+    Light light)
+{
+    // Get Radiance part
+    half NdotL = saturate(dot(surfaceData.normalWS, light.direction));
+    half lightAttenuation = light.distanceAttenuation * light.shadowAttenuation;
+    half3 radiance = light.color * lightAttenuation * NdotL;
+
+    // Get BRDF part
+    half3 brdf = materialData.diffuse;
+    
+    // Specular Part
+    // -----------------------------------
+    // Calc D\F\G
+    half3 Fresnel0 = half3(0.04, 0.04, 0.04);
+          Fresnel0 = lerp(Fresnel0, materialData.albedo, materialData.metallic);
+    
+    half3   halfDir = 0.5 * (light.direction + surfaceData.viewDirWS);
+    float   D = DistributionGGX(surfaceData.normalWS, halfDir, materialData.roughness);  
+    half3   F = fresnelSchlick(max(dot(surfaceData.normalWS, surfaceData.viewDirWS), 0.0), Fresnel0);
+    float   G = GeometrySmith(surfaceData.normalWS, surfaceData.viewDirWS, light.direction, materialData.roughness);       
+    // Calc cook-torrance BRDF
+    half3   nominator    = D * G * F;
+    float   denominator  = 4.0 * max(dot(surfaceData.normalWS, surfaceData.viewDirWS), 0.0) * NdotL + 0.001; 
+    half3   specularBRDF = nominator / denominator;  
+
+    brdf += specularBRDF;
+    
+    // Return Irradiance, namely radiance x brdf
+    return radiance * brdf;
+}
 
 #endif
