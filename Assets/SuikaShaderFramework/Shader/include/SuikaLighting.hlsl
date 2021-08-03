@@ -31,8 +31,10 @@ struct SuikaMaterialData
     half  smoothness;
     half  metallic;
     half  roughness;
+    half  alpha;
 
     half3 diffuse;
+    half3 specular;
 };
 
 struct SuikaBRDFData
@@ -45,6 +47,7 @@ struct appdata
     float4 vertex : POSITION;
     float4 tangent : TANGENT;
     float3 normal : NORMAL;
+    float3 color : COLOR;
     float2 uv : TEXCOORD0;
     float2 lightmapUV : TEXCOORD1;
 };
@@ -59,6 +62,7 @@ struct v2f
     float3 positionWS   : TEXCOORD2;
     float3 viewDirWS    : TEXCOORD3;
     float4 shadowCoord  : TEXCOORD4;
+    float2 extuv        : TEXCOORD5;
 
     half3 tspace0 : TEXCOORD6;
     half3 tspace1 : TEXCOORD7;
@@ -129,12 +133,22 @@ SuikaMaterialData InitializeSuikaMaterialData(v2f i)
 {
     SuikaMaterialData materialData;
     materialData.albedo = tex2D(_MainTex, i.uv) * _BaseColor;
+    materialData.alpha = materialData.albedo.a;
+
+    // If use Cutout mode, do clip
+    #if CUTOUT
+        clip(materialData.albedo.a - _Cutoff);
+        materialData.albedo.a = 1.0;
+    #endif
+
     materialData.metallic = _Metallic;
     materialData.smoothness = _Smoothness;
-    materialData.roughness = 1 - materialData.smoothness;
+    materialData.roughness = PerceptualSmoothnessToPerceptualRoughness(materialData.smoothness);
+    materialData.roughness = max(PerceptualRoughnessToRoughness(materialData.roughness), HALF_MIN_SQRT);
 
     half oneMinusReflectivity = OneMinusReflectivityMetallic(materialData.metallic);
     materialData.diffuse = materialData.albedo * oneMinusReflectivity;
+    materialData.specular = lerp(kDieletricSpec.rgb, materialData.albedo, materialData.metallic);
 
     return materialData;
 }
@@ -149,37 +163,30 @@ half3 GlobalIllumination(
 
     return irradiance;
 }
+
 half3 PhysicalBasedLighting(
     SuikaSurfaceData surfaceData,
     SuikaMaterialData materialData,
     Light light)
 {
     // Get Radiance part
+    // -----------------------------
     half NdotL = saturate(dot(surfaceData.normalWS, light.direction));
     half lightAttenuation = light.distanceAttenuation * light.shadowAttenuation;
     half3 radiance = light.color * lightAttenuation * NdotL;
 
     // Get BRDF part
+    // -----------------------------
+    // Diffuse Term
     half3 brdf = materialData.diffuse;
-    
-    // Specular Part
-    // -----------------------------------
-    // Calc D\F\G
-    half3 Fresnel0 = half3(0.04, 0.04, 0.04);
-          Fresnel0 = lerp(Fresnel0, materialData.albedo, materialData.metallic);
-    
-    half3   halfDir = 0.5 * (light.direction + surfaceData.viewDirWS);
-    float   D = DistributionGGX(surfaceData.normalWS, halfDir, materialData.roughness);  
-    half3   F = fresnelSchlick(max(dot(surfaceData.normalWS, surfaceData.viewDirWS), 0.0), Fresnel0);
-    float   G = GeometrySmith(surfaceData.normalWS, surfaceData.viewDirWS, light.direction, materialData.roughness);       
-    // Calc cook-torrance BRDF
-    half3   nominator    = D * G * F;
-    float   denominator  = 4.0 * max(dot(surfaceData.normalWS, surfaceData.viewDirWS), 0.0) * NdotL + 0.001; 
-    half3   specularBRDF = nominator / denominator;  
-
-    brdf += specularBRDF;
+    // Specular Term
+    half SpecularTerm = SpecularTermWithoutF(
+        light.direction, surfaceData.viewDirWS, 
+        surfaceData.normalWS, materialData.roughness);
+    brdf += SpecularTerm * materialData.specular;
     
     // Return Irradiance, namely radiance x brdf
+    // -----------------------------
     return radiance * brdf;
 }
 

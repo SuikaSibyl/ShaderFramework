@@ -9,6 +9,6 @@ sampler2D _GlowTex;
 
 half _Metallic;
 half _Smoothness;
-
+half _Cutoff;
 
 #endif

@@ -41,4 +41,28 @@ half GeometrySmith(half3 N, half3 V, half3 L, half roughness)
     return ggx1 * ggx2;
 }
 
+half SpecularTermWithoutF(
+    half3 L, half3 V, half3 N, 
+    half roughness)
+{
+    // Specular Part
+    // -----------------------------------
+    half3   halfDir = SafeNormalize(L + V);
+    float   NdotH = saturate(dot(N, halfDir));
+    half    LdotH = saturate(dot(L, halfDir));
+    
+    // GGX法线分布函数D项分母（没有算平方）
+    float roughness2 = roughness * roughness;
+    float roughness2MinusOne = roughness2 - 1;
+    float normalizationTerm = roughness * 4.0 + 2.0;
+    float d = NdotH * NdotH * roughness2MinusOne + 1.00001f;
+    // CookTorrance可见性V项的分母
+    half LdotH2 = LdotH * LdotH;
+    // 最终高光项
+    half specularTerm = roughness2 / ((d * d) * max(0.1h, LdotH2) * normalizationTerm);
+    specularTerm = specularTerm - HALF_MIN;
+    specularTerm = clamp(specularTerm, 0.0, 100.0);
+    return specularTerm;
+}
+
 #endif

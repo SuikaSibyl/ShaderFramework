@@ -1,13 +1,38 @@
-Shader "Unlit/SuikaLit"
+Shader "Suika/SuikaLit"
 {
     Properties
     {
+        // ==============================================
+        // Alpha Mode
+        // ----------------------------------------------
+        // Alpha Cutout Mode Setting, threshold is needed
         _MainTex ("Texture", 2D) = "white" {}
         [HDR]_BaseColor("Base Color", Color) = (1,1,1,1)
         [Normal]_NormalTex ("Normal", 2D)  = "bump" {}
         _Metallic("Metallic Multiplier", float) = 1
+        _MaskTex ("Texture", 2D) = "white" {}
         _Smoothness("Smoothness Multiplier", float) = 1
         _GlowTex ("Glow", 2D) = "black" {}
+        
+        // ==============================================
+        // Alpha Mode
+        // ----------------------------------------------
+        // Alpha Cutout Mode Setting, threshold is needed
+        _AlphaMode("Alpha Mode", float) = 0
+        _Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
+        // Blending Mode Setting
+        [Enum(UnityEngine.Rendering.BlendMode)]
+        _BlendSrc("Blend Source", int) = 0
+        [Enum(UnityEngine.Rendering.BlendMode)]
+        _BlendDst("Blend Dst", int) = 0
+        [Enum(UnityEngine.Rendering.BlendOp)]
+        _BlendOp("Blend Op", int) = 0
+        // Blending state
+        [HideInInspector] _Mode ("__mode", Float) = 0.0
+        [HideInInspector] _BlendMode("__bmode", Float) = 0.0
+        [HideInInspector] _ZWrite("__zw", Float) = 0.0
+        [HideInInspector] _ZTest("__ztest", Float) = 4.0
+        [HideInInspector] _CullMode("__cull", Float) = 2.0
     }
     SubShader
     {
@@ -20,6 +45,8 @@ Shader "Unlit/SuikaLit"
 
         Pass
         {
+            Cull[_CullMode]
+
             HLSLPROGRAM
 
             #pragma vertex vert
@@ -31,6 +58,7 @@ Shader "Unlit/SuikaLit"
             #pragma multi_compile _ _SHADOWS_SOFT
             #pragma multi_compile _ DIRLIGHTMAP_COMBINED
             #pragma multi_compile _ LIGHTMAP_ON
+            #pragma multi_compile _ CUTOUT BLEND
 
             // Include Suika Library
             #include "include/SuikaLitInput.hlsl"
@@ -63,7 +91,7 @@ Shader "Unlit/SuikaLit"
                 SuikaSurfaceData  surfaceData  = InitializeSuikaSurfaceData(i);
                 SuikaMaterialData materialData = InitializeSuikaMaterialData(i);
 
-                half3 irradiance = GlobalIllumination(surfaceData, materialData) * 5;
+                half3 irradiance = GlobalIllumination(surfaceData, materialData);
 
                 // main Lights
                 Light mainLight = GetMainLight(i);
@@ -78,7 +106,8 @@ Shader "Unlit/SuikaLit"
                 }
                 Light light = GetAdditionalLight(0, i.positionWS, half4(1, 1, 1, 1));
                 half4 debug = half4(materialData.metallic,materialData.metallic,materialData.metallic, 1.0);
-                // half4 debug = half4(shadowCoord, 1.0);
+                
+                // Emission part
                 irradiance += surfaceData.emission;
                 return half4(irradiance, 1.0);
             }
@@ -87,4 +116,5 @@ Shader "Unlit/SuikaLit"
 
         UsePass "Universal Render Pipeline/Lit/ShadowCaster"
     }
+    CustomEditor "SuikaLitShaderGUI"
 }
