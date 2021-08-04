@@ -15,7 +15,7 @@
 #include "SuikaBRDF.hlsl"
 
 ///////////////////////////////////////////////////////////////////////////////
-//                          Light Helpers                                    //
+//                       Structure Definition                                //
 ///////////////////////////////////////////////////////////////////////////////
 struct SuikaSurfaceData
 {
@@ -35,11 +35,6 @@ struct SuikaMaterialData
 
     half3 diffuse;
     half3 specular;
-};
-
-struct SuikaBRDFData
-{
-
 };
 
 struct appdata
@@ -69,6 +64,10 @@ struct v2f
     half3 tspace2 : TEXCOORD8;
 };
 
+///////////////////////////////////////////////////////////////////////////////
+//                          Light Helpers                                    //
+///////////////////////////////////////////////////////////////////////////////
+
 Light GetMainLight(v2f i)
 {
     float4 shadowCoord = TransformWorldToShadowCoord(i.positionWS);
@@ -76,9 +75,24 @@ Light GetMainLight(v2f i)
     return mainLight;
 }
 
-// ===========================================================
-// Vertex Shader Functions
-// ===========================================================
+// ------------------------------------
+// Get Global Illumination
+// ------------------------------------
+half3 GlobalIllumination(
+    SuikaSurfaceData surfaceData,
+    SuikaMaterialData materialData)
+{
+    half occlusion= 1;
+    half3 indirectDiffuse = surfaceData.bakedGI * occlusion;
+    half3 irradiance = materialData.diffuse * indirectDiffuse;
+
+    return irradiance;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//                          Vertex Shader Functions                          //
+///////////////////////////////////////////////////////////////////////////////
+
 // ------------------------------------
 // Get TBN matrix and send to fragment
 // ------------------------------------
@@ -95,9 +109,34 @@ void CalcTangentSpace(appdata v, out half3 tspace0, out half3 tspace1, out half3
     tspace2 = half3(wTangent.z, wBitangent.z, wNormal.z);
 }
 
-// ===========================================================
-// Fragment Shader Functions
-// ===========================================================
+// ------------------------------------
+// Get V2F structure initialized as regular
+// ------------------------------------
+void RegularVertexInit(appdata v, out v2f o)
+{
+    // Clip Space Vertex
+    o.vertex = TransformObjectToHClip(v.vertex);
+    // World Space Vertex
+    o.positionWS = TransformObjectToWorld(v.vertex);
+    // Main Tex UV
+    o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+    o.extuv = v.uv;
+    // World Space View Direction
+    o.viewDirWS = GetWorldSpaceViewDir(o.positionWS);
+    // Normal Precomputation
+    CalcTangentSpace(v, o.tspace0, o.tspace1, o.tspace2);
+    // Shadow Coord
+    VertexPositionInputs vertexInput = GetVertexPositionInputs(v.vertex.xyz);
+    o.shadowCoord = GetShadowCoord(vertexInput);
+    // GI Object Precomputation
+    OUTPUT_LIGHTMAP_UV(v.lightmapUV, unity_LightmapST, o.lightmapUV);
+    half3 normalWS = TransformObjectToWorldNormal(v.normal);
+    OUTPUT_SH(normalWS.xyz, o.vertexSH);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//                        Fragment Shader Functions                          //
+///////////////////////////////////////////////////////////////////////////////
 
 // ------------------------------------
 // Get World Space Normal from Tangent space
@@ -111,6 +150,9 @@ half3 NormalTangentToWorld(half3 tNormal, v2f i)
     return normalize(wNormal);
 }
 
+// ------------------------------------
+// Get World Space Normal
+// ------------------------------------
 half3 WorldNormal(v2f i)
 {
     half3 tNormal = normalize(UnpackNormal(tex2D(_NormalTex, i.uv)).xyz);
@@ -118,6 +160,9 @@ half3 WorldNormal(v2f i)
     return wNormal;
 }
 
+// ------------------------------------
+// Initialize Surface Data (No BRDF-para)
+// ------------------------------------
 SuikaSurfaceData InitializeSuikaSurfaceData(v2f i)
 {
     SuikaSurfaceData surfaceData;
@@ -129,6 +174,9 @@ SuikaSurfaceData InitializeSuikaSurfaceData(v2f i)
     return surfaceData;
 }
 
+// ------------------------------------
+// Initialize Material Data (BRDF-para)
+// ------------------------------------
 SuikaMaterialData InitializeSuikaMaterialData(v2f i)
 {
     SuikaMaterialData materialData;
@@ -151,17 +199,6 @@ SuikaMaterialData InitializeSuikaMaterialData(v2f i)
     materialData.specular = lerp(kDieletricSpec.rgb, materialData.albedo, materialData.metallic);
 
     return materialData;
-}
-
-half3 GlobalIllumination(
-    SuikaSurfaceData surfaceData,
-    SuikaMaterialData materialData)
-{
-    half occlusion= 1;
-    half3 indirectDiffuse = surfaceData.bakedGI * occlusion;
-    half3 irradiance = materialData.diffuse * indirectDiffuse;
-
-    return irradiance;
 }
 
 half3 PhysicalBasedLighting(
@@ -190,4 +227,101 @@ half3 PhysicalBasedLighting(
     return radiance * brdf;
 }
 
+// ------------------------------------
+// Standard Lit Irradiance
+// ------------------------------------
+half3 StandardLitIrradiance(
+    SuikaSurfaceData surfaceData,
+    SuikaMaterialData materialData,
+    v2f i)
+{
+    // Init irradiance with GI
+    // -----------------------------
+    half3 irradiance = GlobalIllumination(surfaceData, materialData);
+
+    // Update irradiance with Emission Lights
+    // -----------------------------
+    irradiance += surfaceData.emission;
+
+    // Update irradiance with Main Light
+    // -----------------------------
+    Light mainLight = GetMainLight(i);
+    irradiance += PhysicalBasedLighting(surfaceData, materialData, mainLight);
+
+    // Update irradiance with Additional Lights
+    // -----------------------------
+    half4 shadowMask = unity_ProbesOcclusion;
+    uint additionalLightCount = GetAdditionalLightsCount();
+    for (uint lightIndex = 0u; lightIndex < additionalLightCount; lightIndex++)
+    {
+        Light light = GetAdditionalLight(lightIndex, i.positionWS, shadowMask);
+        irradiance += PhysicalBasedLighting(surfaceData, materialData, light);
+    }
+
+    return irradiance;
+}
+
+// ------------------------------------
+// BSDF Lighting
+// ------------------------------------
+half3 BSDFLighting(
+    SuikaSurfaceData surfaceData,
+    SuikaMaterialData materialData,
+    Light light, half thickness)
+{
+    // Get Radiance part
+    // -----------------------------
+    half NdotL = saturate(dot(surfaceData.normalWS, light.direction));
+    half lightAttenuation = light.distanceAttenuation;
+    half3 radiance = light.color * lightAttenuation * thickness;
+
+    // Get BSDF part
+    // -----------------------------
+    // Diffuse Term
+    half3 bsdf = materialData.diffuse;
+
+    half fLTDistortion = 0.0;
+    half3 vLTLight = light.direction + surfaceData.normalWS * fLTDistortion;
+    half iLTPower = 0.5;
+    half fLTScale = 1.5;
+    half  fLTDot = pow(saturate(dot(surfaceData.normalWS, -vLTLight)), iLTPower) * fLTScale;
+    bsdf *= fLTScale;
+    // bsdf = fLTDot;
+    // Specular Term
+
+
+    // Return Irradiance, namely radiance x brdf
+    // -----------------------------
+    return radiance * bsdf;
+}
+
+// ------------------------------------
+// BSDF Lit Irradiance
+// ------------------------------------
+half3 BSDFIrradiance(
+    SuikaSurfaceData surfaceData,
+    SuikaMaterialData materialData,
+    v2f i, half thickness)
+{
+    // Init irradiance with GI
+    // -----------------------------
+    half3 irradiance = half3(0, 0, 0);
+
+    // Update irradiance with Main Light
+    // -----------------------------
+    Light mainLight = GetMainLight(i);
+    irradiance += BSDFLighting(surfaceData, materialData, mainLight, thickness);
+
+    // Update irradiance with Additional Lights
+    // -----------------------------
+    half4 shadowMask = unity_ProbesOcclusion;
+    uint additionalLightCount = GetAdditionalLightsCount();
+    for (uint lightIndex = 0u; lightIndex < additionalLightCount; lightIndex++)
+    {
+        Light light = GetAdditionalLight(lightIndex, i.positionWS, shadowMask);
+        irradiance += BSDFLighting(surfaceData, materialData, light, thickness);
+    }
+
+    return irradiance;
+}
 #endif

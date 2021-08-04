@@ -3,7 +3,7 @@ Shader "Suika/SuikaFur"
     Properties
     {
         // ==============================================
-        // Fur Extra
+        // Fur Extra Specified
         // ----------------------------------------------
         _NoiseTex ("Texture", 2D) = "white" {}
         _NoiseTex_UV ("Texture", Vector) = (1,1,0,0)
@@ -11,7 +11,7 @@ Shader "Suika/SuikaFur"
         _FurLength("Fur Length", Float) = 0.3
 
         // ==============================================
-        // Alpha Mode
+        // Common Input
         // ----------------------------------------------
         // Alpha Cutout Mode Setting, threshold is needed
         _MainTex ("Texture", 2D) = "white" {}
@@ -57,79 +57,15 @@ Shader "Suika/SuikaFur"
 
             HLSLPROGRAM
 
-            #pragma vertex vert
-            #pragma fragment frag
-            
-            // Receive Shadow
-            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
-            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
-            #pragma multi_compile _ _SHADOWS_SOFT
-            #pragma multi_compile _ DIRLIGHTMAP_COMBINED
-            #pragma multi_compile _ LIGHTMAP_ON
-            #pragma multi_compile _ CUTOUT BLEND
+            #pragma vertex VertexReguluarLit
+            #pragma fragment FragmentRegularLit
 
             // Include Suika Library
+            #include "include/SuikaCommon.hlsl"
             #include "include/SuikaLitInput.hlsl"
             #include "include/SuikaLighting.hlsl"
+            #include "include/SuikaRegularPass.hlsl"
 
-            float4 _MainTex_ST;
-            sampler2D _NoiseTex;
-            float4 _NoiseTex_UV;
-            half _Threshold;
-            half _FUR_OFFSET;
-
-            v2f vert (appdata v)
-            {
-                v2f o;
-                // o.vertex = TransformObjectToHClip(v.vertex);
-                o.positionWS = TransformObjectToWorld(v.vertex);
-                half3 normalWS = TransformObjectToWorldNormal(v.normal);
-                o.vertex = TransformWorldToHClip(o.positionWS);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                o.extuv = v.uv * _NoiseTex_UV.xy;
-                o.viewDirWS = GetWorldSpaceViewDir(o.positionWS);
-                // Normal Precomputation
-                CalcTangentSpace(v, o.tspace0, o.tspace1, o.tspace2);
-                // Shadow Coord
-                VertexPositionInputs vertexInput = GetVertexPositionInputs(v.vertex.xyz);
-                o.shadowCoord = GetShadowCoord(vertexInput);
-                // GI Object Precomputation
-                OUTPUT_LIGHTMAP_UV(v.lightmapUV, unity_LightmapST, o.lightmapUV);
-                OUTPUT_SH(normalWS.xyz, o.vertexSH);
-
-                return o;
-            }
-
-            half4 frag (v2f i) : SV_Target
-            {
-                // --------------------------------------------------------------------
-                // Fur Surface Material
-                // ====================================================================
-                half3 noise = tex2D(_NoiseTex, i.extuv);
-                // --------------------------------------------------------------------
-                SuikaSurfaceData  surfaceData  = InitializeSuikaSurfaceData(i);
-                SuikaMaterialData materialData = InitializeSuikaMaterialData(i);
-
-                half3 irradiance = GlobalIllumination(surfaceData, materialData);
-
-                // main Lights
-                Light mainLight = GetMainLight(i);
-                irradiance += PhysicalBasedLighting(surfaceData, materialData, mainLight);
-                half4 shadowMask = unity_ProbesOcclusion;
-                // Additional Lights
-                uint additionalLightCount = GetAdditionalLightsCount();
-                for (uint lightIndex = 0u; lightIndex < additionalLightCount; lightIndex++)
-                {
-                    Light light = GetAdditionalLight(lightIndex, i.positionWS, shadowMask);
-                    irradiance += PhysicalBasedLighting(surfaceData, materialData, light);
-                }
-                Light light = GetAdditionalLight(0, i.positionWS, half4(1, 1, 1, 1));
-                half4 debug = half4(materialData.metallic,materialData.metallic,materialData.metallic, 1.0);
-                
-                // Emission part
-                irradiance += surfaceData.emission;
-                return half4(irradiance, 1.0);
-            }
             ENDHLSL
         }
 
@@ -146,20 +82,12 @@ Shader "Suika/SuikaFur"
 
             #pragma vertex vert
             #pragma fragment frag
-            
-            // Receive Shadow
-            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
-            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
-            #pragma multi_compile _ _SHADOWS_SOFT
-            #pragma multi_compile _ DIRLIGHTMAP_COMBINED
-            #pragma multi_compile _ LIGHTMAP_ON
-            #pragma multi_compile _ CUTOUT BLEND
 
             // Include Suika Library
+            #include "include/SuikaCommon.hlsl"
             #include "include/SuikaLitInput.hlsl"
             #include "include/SuikaLighting.hlsl"
 
-            float4 _MainTex_ST;
             sampler2D _NoiseTex;
             float4 _NoiseTex_UV;
             half _Threshold;
@@ -169,63 +97,34 @@ Shader "Suika/SuikaFur"
             v2f vert (appdata v)
             {
                 v2f o;
-                // o.vertex = TransformObjectToHClip(v.vertex);
-                o.positionWS = TransformObjectToWorld(v.vertex);
+                RegularVertexInit(v, o);
+                // Have gravity influence the fur vertex
+                // -------------------------------------
                 half3 normalWS = TransformObjectToWorldNormal(v.normal);
-                
                 half3 direction = half3(0,-1,0) * 0.3 + normalWS * (1. - 0.3);
                 direction = lerp(normalWS, direction, _FUR_OFFSET);
                 o.positionWS += direction * _FUR_OFFSET * _FurLength * v.color.r;
-                // o.positionWS += normalWS * _FUR_OFFSET * 0.1f;
-
                 o.vertex = TransformWorldToHClip(o.positionWS);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                // Change Extra Map UV
+                // -------------------------------------
                 o.extuv = v.uv * _NoiseTex_UV.xy;
-                o.viewDirWS = GetWorldSpaceViewDir(o.positionWS);
-                // Normal Precomputation
-                CalcTangentSpace(v, o.tspace0, o.tspace1, o.tspace2);
-                // Shadow Coord
-                VertexPositionInputs vertexInput = GetVertexPositionInputs(v.vertex.xyz);
-                o.shadowCoord = GetShadowCoord(vertexInput);
-                // GI Object Precomputation
-                OUTPUT_LIGHTMAP_UV(v.lightmapUV, unity_LightmapST, o.lightmapUV);
-                OUTPUT_SH(normalWS.xyz, o.vertexSH);
 
                 return o;
             }
 
             half4 frag (v2f i) : SV_Target
             {
-                // --------------------------------------------------------------------
+                // Data Initialization
                 SuikaSurfaceData  surfaceData  = InitializeSuikaSurfaceData(i);
                 SuikaMaterialData materialData = InitializeSuikaMaterialData(i);
 
-                // --------------------------------------------------------------------
-                // Fur Surface Material
-                // ====================================================================
+                // Use the standard way to get irradiance
+                half3 irradiance = StandardLitIrradiance(surfaceData, materialData, i);
+
+                // Fur specified Influence
                 half3 noise = tex2D(_NoiseTex, i.extuv);
                 half alpha = noise.rrr;
                 alpha = step(_FUR_OFFSET*_FUR_OFFSET, alpha);
-
-
-                half3 irradiance = GlobalIllumination(surfaceData, materialData);
-
-                // main Lights
-                Light mainLight = GetMainLight(i);
-                irradiance += PhysicalBasedLighting(surfaceData, materialData, mainLight);
-                half4 shadowMask = unity_ProbesOcclusion;
-                // Additional Lights
-                uint additionalLightCount = GetAdditionalLightsCount();
-                for (uint lightIndex = 0u; lightIndex < additionalLightCount; lightIndex++)
-                {
-                    Light light = GetAdditionalLight(lightIndex, i.positionWS, shadowMask);
-                    irradiance += PhysicalBasedLighting(surfaceData, materialData, light);
-                }
-                Light light = GetAdditionalLight(0, i.positionWS, half4(1, 1, 1, 1));
-                half4 debug = half4(materialData.metallic,materialData.metallic,materialData.metallic, 1.0);
-                
-                // Emission part
-                irradiance += surfaceData.emission;
 
                 half occlusion =_FUR_OFFSET; //伽马转线性最精简版
                 occlusion +=0.04 ;
