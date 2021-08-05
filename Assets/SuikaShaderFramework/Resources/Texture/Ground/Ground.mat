@@ -91,10 +91,10 @@ Material:
     - _AlphaClip: 0
     - _AlphaMode: 0
     - _Blend: 0
-    - _BlendDst: 0
-    - _BlendMode: 0
+    - _BlendDst: 10
+    - _BlendMode: 1
     - _BlendOp: 0
-    - _BlendSrc: 0
+    - _BlendSrc: 1
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -119,6 +119,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _Workflow: 0
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1

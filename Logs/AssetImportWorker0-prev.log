@@ -1,0 +1,443 @@
+Using pre-set license
+Built from '2020.3/china_unity/release' branch; Version is '2020.3.13f1c1 (93b9df9a3ddc) revision 9681375'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.928; Version 2009; 64bit' Language: 'zh' Physical Memory: 32542 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.13f1c1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+E:/Unity_Projects/ShaderFramework
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+64496
+Successfully changed project path to: E:/Unity_Projects/ShaderFramework
+E:/Unity_Projects/ShaderFramework
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 51.10 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.13f1c1 (93b9df9a3ddc)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/Unity_Projects/ShaderFramework/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f08)
+    Vendor:   
+    VRAM:     5980 MB
+    Driver:   27.21.14.6192
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56004
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001028 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 50.15 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.263 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002749 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 52.82 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.943 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.50 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2849 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 128.6 MB.
+System memory in use after: 128.8 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3287.
+Total: 2.270800 ms (FindLiveObjects: 0.201500 ms CreateObjectMapping: 0.097400 ms MarkObjects: 1.922600 ms  DeleteObjects: 0.048700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/SuikaShaderFramework/Sample - Orange.unity
+  artifactKey: Guid(9449d82c2dbdaf948acc1f7d4d81375d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Sample - Orange.unity using Guid(9449d82c2dbdaf948acc1f7d4d81375d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f16674a5906f5f92c0245dc47332cc14') in 0.010446 seconds 
+  Import took 0.013871 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.417314 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/mandarine.fbx
+  artifactKey: Guid(81fab29c321ab8f4a8d7e82ecd7ecd23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/mandarine.fbx using Guid(81fab29c321ab8f4a8d7e82ecd7ecd23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84afbf3be026344df5dfdaad2e96b2c0') in 0.297026 seconds 
+  Import took 0.301062 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.513535 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange
+  artifactKey: Guid(a32eb90c73e141b408a8aa641d377e7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange using Guid(a32eb90c73e141b408a8aa641d377e7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01981b2835c715aa94e8b869b908b7c9') in 0.001682 seconds 
+  Import took 0.005458 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.323278 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/mandarine.fbx
+  artifactKey: Guid(800d62b6db46c744194a547f31fde0ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/mandarine.fbx using Guid(800d62b6db46c744194a547f31fde0ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc21580294cdb17b03f648b36831939a') in 0.014102 seconds 
+  Import took 0.029094 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.025490 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/Mandarine.jpg
+  artifactKey: Guid(724c196783be1394bbc128a11e7f87d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/Mandarine.jpg using Guid(724c196783be1394bbc128a11e7f87d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39fc262ee764652b74f81020e3e15948') in 0.293311 seconds 
+  Import took 0.297148 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.869075 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/orange_thickness.png
+  artifactKey: Guid(ecd88c2fd291dec4bbac8e98cb4c6898) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/orange_thickness.png using Guid(ecd88c2fd291dec4bbac8e98cb4c6898) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7d225f79dd7e4c6ab86dc5f395c9454') in 0.040080 seconds 
+  Import took 0.044050 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.915154 seconds.
+  path: Assets/SuikaShaderFramework/Sample-Centaur/LightingData.asset
+  artifactKey: Guid(671f5fa3c33620d41856508ed905f2f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Sample-Centaur/LightingData.asset using Guid(671f5fa3c33620d41856508ed905f2f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d65e2b6c184734e8a70d870545f4661') in 0.665180 seconds 
+  Import took 0.669064 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/SuikaShaderFramework/Sample - Fur/Lightmap-0_comp_dir.png
+  artifactKey: Guid(bae3d2d961660794faea9068e98c68c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Sample - Fur/Lightmap-0_comp_dir.png using Guid(bae3d2d961660794faea9068e98c68c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55f0ce0b9cd75a733d4ba8d453fa77e6') in 0.061751 seconds 
+  Import took 0.083920 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000736 seconds.
+  path: Assets/SuikaShaderFramework/Sample-Centaur/Lightmap-0_comp_dir.png
+  artifactKey: Guid(6b13118f441bf874880fd7d1689b194e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Sample-Centaur/Lightmap-0_comp_dir.png using Guid(6b13118f441bf874880fd7d1689b194e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6614fb19ad7ffd371cba62ab9e8dabee') in 0.059060 seconds 
+  Import took 0.075483 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000504 seconds.
+  path: Assets/SuikaShaderFramework/Sample - Fur/LightingData.asset
+  artifactKey: Guid(5f090ab5c9a07f748910c89865d1c16e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Sample - Fur/LightingData.asset using Guid(5f090ab5c9a07f748910c89865d1c16e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b3d988392f9cad4377272d617acf8db') in 0.003048 seconds 
+  Import took 0.008701 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000345 seconds.
+  path: Assets/SuikaShaderFramework/Sample-Centaur/Lightmap-0_comp_light.exr
+  artifactKey: Guid(b6a86a90f505c134595c39c922980645) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Sample-Centaur/Lightmap-0_comp_light.exr using Guid(b6a86a90f505c134595c39c922980645) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db77b449dc8fa7a50ecf7a1397893bea') in 0.048938 seconds 
+  Import took 0.053059 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/SuikaShaderFramework/Sample - Fur/Lightmap-0_comp_light.exr
+  artifactKey: Guid(809d553942c4747478da1922f2b349b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Sample - Fur/Lightmap-0_comp_light.exr using Guid(809d553942c4747478da1922f2b349b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5063268bc1643a028d7bd28f5a02dd0') in 0.015270 seconds 
+  Import took 0.018968 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 86.028460 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/Orange.mat
+  artifactKey: Guid(1ef2a3af24a459f469bbeb38fd074497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/Orange.mat using Guid(1ef2a3af24a459f469bbeb38fd074497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0a9f725e339318c09e8e3a89b65d079') in 0.020120 seconds 
+  Import took 0.035702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.420808 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/Orange.mat
+  artifactKey: Guid(1ef2a3af24a459f469bbeb38fd074497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/Orange.mat using Guid(1ef2a3af24a459f469bbeb38fd074497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd84441deddbae0cd05dfcce1f3fc1348') in 0.015875 seconds 
+  Import took 0.032469 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.836639 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/Orange.mat
+  artifactKey: Guid(1ef2a3af24a459f469bbeb38fd074497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/Orange.mat using Guid(1ef2a3af24a459f469bbeb38fd074497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '856ba7d566607224379b4f92704a1b52') in 0.194066 seconds 
+  Import took 0.197826 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 182.834216 seconds.
+  path: Assets/SuikaShaderFramework/Sample - Orange.unity
+  artifactKey: Guid(9449d82c2dbdaf948acc1f7d4d81375d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Sample - Orange.unity using Guid(9449d82c2dbdaf948acc1f7d4d81375d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1fb430a9871956f7a700b49e170dbd3') in 0.002414 seconds 
+  Import took 0.006714 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2281.929128 seconds.
+  path: Assets/SuikaShaderFramework/Editor/SuikaLitTranslucentShaderGUI.cs
+  artifactKey: Guid(7b48696f135d12f47898ff4a658703e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Editor/SuikaLitTranslucentShaderGUI.cs using Guid(7b48696f135d12f47898ff4a658703e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'addb0f54d8d406f1fcf13118df9485de') in 0.004863 seconds 
+  Import took 0.009382 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.007402 seconds.
+  path: Assets/SuikaShaderFramework/Editor/SuikaLitTranslucentShaderGUI.cs
+  artifactKey: Guid(7b48696f135d12f47898ff4a658703e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Editor/SuikaLitTranslucentShaderGUI.cs using Guid(7b48696f135d12f47898ff4a658703e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3a95de9ea926cd2006d6f99539900a6') in 0.006195 seconds 
+  Import took 0.011227 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003186 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.917 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2740 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 127.2 MB.
+System memory in use after: 127.4 MB.
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3377.
+Total: 2.297100 ms (FindLiveObjects: 0.233200 ms CreateObjectMapping: 0.103800 ms MarkObjects: 1.940100 ms  DeleteObjects: 0.018900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002752 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.920 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2739 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 127.0 MB.
+System memory in use after: 127.2 MB.
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3380.
+Total: 2.091800 ms (FindLiveObjects: 0.207500 ms CreateObjectMapping: 0.091000 ms MarkObjects: 1.774600 ms  DeleteObjects: 0.018000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1426.768212 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/Orange.mat
+  artifactKey: Guid(1ef2a3af24a459f469bbeb38fd074497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/Orange.mat using Guid(1ef2a3af24a459f469bbeb38fd074497) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb4916cdd1c0abf04bf305a2566147f3') in 0.280404 seconds 
+  Import took 0.285315 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 855.029411 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Mesh/untitled.fbx
+  artifactKey: Guid(f828465ba4d33124bac7f1697344fb4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Mesh/untitled.fbx using Guid(f828465ba4d33124bac7f1697344fb4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01bbd4d8e0e66d78075258751cd4775a') in 0.038297 seconds 
+  Import took 0.042756 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 114.590072 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/thickness.png
+  artifactKey: Guid(c88258e298f00964583c5785035ada13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/thickness.png using Guid(c88258e298f00964583c5785035ada13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f3b79063e7f4fc2d6a6efbacc306373') in 0.044858 seconds 
+  Import took 0.056027 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.871472 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/figure-of-a-dancer-150k-4096-normals.jpg
+  artifactKey: Guid(6bbb3c48d40bfce4f8d8f1bc90ad3534) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/figure-of-a-dancer-150k-4096-normals.jpg using Guid(6bbb3c48d40bfce4f8d8f1bc90ad3534) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5be9c0d1f57061531e97415eb3e8eae') in 0.179678 seconds 
+  Import took 0.189482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000323 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/figure-of-a-dancer-150k-4096-occlusion.jpg
+  artifactKey: Guid(a7deeb21497660e4eb205bbc6734d6cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/figure-of-a-dancer-150k-4096-occlusion.jpg using Guid(a7deeb21497660e4eb205bbc6734d6cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddb403646d0d1f8951d32cf7dc3b717e') in 0.193077 seconds 
+  Import took 0.210045 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.666963 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat
+  artifactKey: Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat using Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa1d3c2d84a75289eba861be2c087940') in 0.008186 seconds 
+  Import took 0.020357 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.049790 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat
+  artifactKey: Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat using Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98e47dd9e8d10ae110a5bcab5a318726') in 0.006367 seconds 
+  Import took 0.014268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.919100 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat
+  artifactKey: Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat using Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '187a1b2d025f8bda06ecfbe2bf8a1616') in 0.169821 seconds 
+  Import took 0.173839 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.429555 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat
+  artifactKey: Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat using Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a64e6b97e71b837841d4c4000cf2385') in 0.139707 seconds 
+  Import took 0.153869 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.656087 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat
+  artifactKey: Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/girl.mat using Guid(d790dd1c75273754bb237a2339e647cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5059e54d1a92289f21a6c3c9de78833') in 0.309536 seconds 
+  Import took 0.314038 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.233459 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Orange/figure-of-a-dancer-150k-4096-normals.jpg
+  artifactKey: Guid(6bbb3c48d40bfce4f8d8f1bc90ad3534) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Orange/figure-of-a-dancer-150k-4096-normals.jpg using Guid(6bbb3c48d40bfce4f8d8f1bc90ad3534) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fb86c906ff97aed62ff996da47d6276') in 0.267089 seconds 
+  Import took 0.292013 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1142.865747 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Girl/Cloth.mat
+  artifactKey: Guid(06e1cd428b629414193c2033ecf0dd10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Girl/Cloth.mat using Guid(06e1cd428b629414193c2033ecf0dd10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd9fc6e06b2f0d7c6160f7c2c44f5518') in 0.219457 seconds 
+  Import took 0.223864 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003365 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Girl/Cloth.mat
+  artifactKey: Guid(06e1cd428b629414193c2033ecf0dd10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Girl/Cloth.mat using Guid(06e1cd428b629414193c2033ecf0dd10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd9fc6e06b2f0d7c6160f7c2c44f5518') in 0.155540 seconds 
+  Import took 0.159335 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 50.061132 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Girl/Body.mat
+  artifactKey: Guid(3bbac71270fc9794db7691e487b3ad6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Girl/Body.mat using Guid(3bbac71270fc9794db7691e487b3ad6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '354cf33a108decf9ad200fcd25c5adfd') in 0.417204 seconds 
+  Import took 0.434642 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.018587 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Girl/body_norm_01.jpg
+  artifactKey: Guid(9a8f8f7ffd9b85c4995297b7438a431d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Girl/body_norm_01.jpg using Guid(9a8f8f7ffd9b85c4995297b7438a431d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acf7f1818ca273439f5b08e3a894e98b') in 0.255767 seconds 
+  Import took 0.270143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.857156 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Girl/eyes_norm_01.jpg
+  artifactKey: Guid(0f540e19c74c75247bc89daddf1d8d13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Girl/eyes_norm_01.jpg using Guid(0f540e19c74c75247bc89daddf1d8d13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8dc2cbdaac3eb714d0e2382578478a2f') in 0.009807 seconds 
+  Import took 0.013592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.170004 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Girl/Eyes.mat
+  artifactKey: Guid(1682e346956923147af1528c14e08e26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Girl/Eyes.mat using Guid(1682e346956923147af1528c14e08e26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e9f495d1b19a7115b01d781812c262c') in 0.012785 seconds 
+  Import took 0.022951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.221942 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Girl/cloth_norm_01.jpg
+  artifactKey: Guid(7845ca9728a3a4343aca614a67c4e31e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Girl/cloth_norm_01.jpg using Guid(7845ca9728a3a4343aca614a67c4e31e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9722b7d97fcfd9f3367d5c39a0ac0690') in 0.269555 seconds 
+  Import took 0.290346 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.870321 seconds.
+  path: Assets/SuikaShaderFramework/Resources/Texture/Girl/Cloth.mat
+  artifactKey: Guid(06e1cd428b629414193c2033ecf0dd10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SuikaShaderFramework/Resources/Texture/Girl/Cloth.mat using Guid(06e1cd428b629414193c2033ecf0dd10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '676fe5d2cab2e68ca9766b7ca99e57f2') in 0.299937 seconds 
+  Import took 0.304917 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

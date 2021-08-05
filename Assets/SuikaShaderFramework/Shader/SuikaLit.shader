@@ -30,6 +30,7 @@ Shader "Suika/SuikaLit"
         _BlendOp("Blend Op", int) = 0
         // Blending state
         [HideInInspector] _Mode ("__mode", Float) = 0.0
+        [HideInInspector] _Workflow ("__workflow", Float) = 0.0
         [HideInInspector] _BlendMode("__bmode", Float) = 0.0
         [HideInInspector] _ZWrite("__zw", Float) = 0.0
         [HideInInspector] _ZTest("__ztest", Float) = 4.0
@@ -46,6 +47,10 @@ Shader "Suika/SuikaLit"
 
         Pass
         {
+            BlendOp [_BlendOp]
+            Blend [_BlendSrc] [_BlendDst]
+            ZWrite[_ZWrite]
+            ZTest[_ZTest]
             Cull[_CullMode]
 
             HLSLPROGRAM

@@ -5,6 +5,17 @@
 #include "include/SuikaLitInput.hlsl"
 #include "include/SuikaLighting.hlsl"
 
+// =============================================================
+// =============================================================
+//                      Suika Lighting
+// -------------------------------------------------------------
+// It's the 1.5 layer of Suika Shaderframework.
+// In this layer, we define the Basic Regular Pass HLSL Funcs
+// -------------------------------------------------------------
+// prev: SuikaXXX.shader                    next: SuikaBRDF.hlsl
+// =============================================================
+// =============================================================
+
 v2f VertexReguluarLit (appdata v)
 {
     v2f o;
@@ -21,4 +32,5 @@ half4 FragmentRegularLit (v2f i) : SV_Target
     half3 irradiance = StandardLitIrradiance(surfaceData, materialData, i);
     return half4(irradiance, 1.0);
 }
+
 #endif

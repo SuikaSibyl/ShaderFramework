@@ -94,7 +94,7 @@ Material:
     - _BlendDst: 0
     - _BlendMode: 0
     - _BlendOp: 0
-    - _BlendSrc: 0
+    - _BlendSrc: 1
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0

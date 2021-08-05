@@ -2,7 +2,14 @@ Shader "Suika/SuikaTranslucent"
 {
     Properties
     {
+        // ==============================================
+        // Translucent Extra Specified
+        // ----------------------------------------------
         _TranslucentTex ("Texture", 2D) = "white" {}
+        _AmbientStrength ("_AmbientStrength", Float) = 0.5
+        _AttenuationSpeed ("_AttenuationSpeed", Float) = 1.0
+        _Distortion ("_Distortion", Float) = 0.0
+        _Scaling ("_Scaling", Float) = 1.0
 
         // ==============================================
         // Common Input
@@ -20,7 +27,6 @@ Shader "Suika/SuikaTranslucent"
         // Alpha Mode
         // ----------------------------------------------
         // Alpha Cutout Mode Setting, threshold is needed
-        _AlphaMode("Alpha Mode", float) = 0
         _Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
         // Blending Mode Setting
         [Enum(UnityEngine.Rendering.BlendMode)]
@@ -31,6 +37,7 @@ Shader "Suika/SuikaTranslucent"
         _BlendOp("Blend Op", int) = 0
         // Blending state
         [HideInInspector] _Mode ("__mode", Float) = 0.0
+        [HideInInspector] _Workflow ("__workflow", Float) = 0.0
         [HideInInspector] _BlendMode("__bmode", Float) = 0.0
         [HideInInspector] _ZWrite("__zw", Float) = 0.0
         [HideInInspector] _ZTest("__ztest", Float) = 4.0
@@ -61,6 +68,10 @@ Shader "Suika/SuikaTranslucent"
             #include "include/SuikaRegularPass.hlsl"
 
             sampler2D _TranslucentTex;
+            half _AmbientStrength;
+            half _AttenuationSpeed;
+            half _Distortion;
+            half _Scaling;
 
             half4 frag (v2f i) : SV_Target
             {
@@ -69,10 +80,14 @@ Shader "Suika/SuikaTranslucent"
                 SuikaMaterialData materialData = InitializeSuikaMaterialData(i);
                 // Use the standard way to get irradiance
                 half3 irradiance = StandardLitIrradiance(surfaceData, materialData, i);
-
+                
+                // Get Extra Lighting from Transmittance Case:
+                // Use BTDF Handler to get BTDFIrradiance.
                 half thickness = tex2D(_TranslucentTex, i.uv).rrr;
-                irradiance += BSDFIrradiance(surfaceData, materialData, i, thickness);
+                irradiance += BTDFIrradiance(surfaceData, materialData, i, thickness, 
+                            _AmbientStrength, _AttenuationSpeed, _Distortion, _Scaling);
 
+                // Return result
                 return half4(irradiance, 1.0);
             }
             ENDHLSL
