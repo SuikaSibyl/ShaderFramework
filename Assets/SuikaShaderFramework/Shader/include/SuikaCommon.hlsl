@@ -166,12 +166,15 @@ half3 WorldTangent(v2f i)
 // ------------------------------------
 // Get World Space Bitangent
 // ------------------------------------
-half3 WorldBitangent(v2f i)
+half3 WorldBitangent(v2f i, half3 normalWS)
 {
     half3 wBitangent;
     wBitangent.x = i.tspace0.y;
     wBitangent.y = i.tspace1.y;
     wBitangent.z = i.tspace2.y;
+    wBitangent = normalize(wBitangent);
+    half3 tmpTangent = cross(normalWS, wBitangent);
+    wBitangent = cross(tmpTangent, normalWS);
     return normalize(wBitangent);
 }
 
@@ -183,7 +186,7 @@ half4 WorldNormal(v2f i)
     half4 nortex = tex2D(_NormalTex, i.uv);
     half3 tNormal = normalize(UnpackNormal(nortex).xyz);
     half3 wNormal = NormalTangentToWorld(tNormal, i);
-    return half4(wNormal, nortex.a);
+    return half4(wNormal, 1);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -198,7 +201,7 @@ SuikaSurfaceData InitializeSuikaSurfaceData(v2f i)
     SuikaSurfaceData surfaceData;
     half4 normalWS = WorldNormal(i);
     surfaceData.normalWS = normalWS.rgb;
-    surfaceData.occlusion = normalWS.a;
+    surfaceData.occlusion = 1;
     surfaceData.viewDirWS = normalize(i.viewDirWS);
     surfaceData.bakedGI = SAMPLE_GI(i.lightmapUV, i.vertexSH, surfaceData.normalWS);
     surfaceData.emission = tex2D(_GlowTex, i.uv).rgb;

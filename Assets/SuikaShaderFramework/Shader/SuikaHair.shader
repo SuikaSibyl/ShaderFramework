@@ -2,6 +2,10 @@ Shader "Suika/SuikaHair"
 {
     Properties
     {
+        // ==============================================
+        // Hair Extra Specified
+        // ----------------------------------------------
+        _HairTex ("Hair", 2D) = "white" {}
 
         // ==============================================
         // Common Input
@@ -63,17 +67,31 @@ Shader "Suika/SuikaHair"
             #include "include/SuikaLighting.hlsl"
             #include "include/SuikaRegularPass.hlsl"
 
-            half4 frag (v2f i) : SV_Target
+            sampler2D _HairTex;
+
+            half4 frag (v2f i, half facing : VFACE) : SV_Target
             {
                 // Data Initialization
                 SuikaSurfaceData  surfaceData  = InitializeSuikaSurfaceData(i);
                 SuikaMaterialData materialData = InitializeSuikaMaterialData(i);
+                
+                // Fix for backface cases
+                // -------------------------------
+                if(facing <= 0)
+                {
+                    surfaceData.normalWS = - surfaceData.normalWS;
+                }
 
-                half3 normal = WorldNormal(i);
-                half3 tangent = WorldTangent(i);
-                half3 bitangent = WorldBitangent(i);
+                // Fetch AO Info from Hair Texture
+                half4 hairData = tex2D(_HairTex, i.uv);
+                surfaceData.occlusion = hairData.r;
+                // Get Bitangent info from NormalMap
+                half3 normal = surfaceData.normalWS;
+                half3 bitangent = WorldBitangent(i, normal);
+                half3 tangent = normalize(cross(normal, bitangent));
+
                 // Use the standard way to get irradiance
-                half3 irradiance = HairIrradiance(surfaceData, materialData, i, normal);
+                half3 irradiance = HairIrradiance(surfaceData, materialData, i, tangent, bitangent);
 
                 return half4(irradiance, 1.0);
             }

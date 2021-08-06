@@ -22,7 +22,7 @@ public class SuikaHairShaderGUI : SuikaShaderCommonGUI
     /////////////////////////////////////////////////////////
     public override void FindExtraProperties(MaterialProperty[] props)
     {
-        //hairMap = FindProperty("_TranslucentTex", props);
+        hairMap = FindProperty("_HairTex", props);
     }
 
     /////////////////////////////////////////////////////////
@@ -37,6 +37,6 @@ public class SuikaHairShaderGUI : SuikaShaderCommonGUI
 
     void DoHairArea(Material material)
     {
-        //m_MaterialEditor.TexturePropertySingleLine(TranslucentStyles.translucentText, translucentMap);
+        m_MaterialEditor.TexturePropertySingleLine(HairStyles.hairText, hairMap);
     }
 }

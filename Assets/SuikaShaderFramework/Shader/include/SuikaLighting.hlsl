@@ -105,30 +105,32 @@ half3 BTDFIrradiance(
 half3 HairIrradiance(
     SuikaSurfaceData surfaceData,
     SuikaMaterialData materialData,
-    v2f i, half3 tangent)
+    v2f i, half3 tangent, half3 bitangent)
 {
     // Init irradiance with GI
     // -----------------------------
-    half3 irradiance = GlobalIllumination(surfaceData, materialData);
+    half3 irradiance = half3(0,0,0);
+    // half3 irradiance = GlobalIllumination(surfaceData, materialData);
 
     // Update irradiance with Emission Lights
     // -----------------------------
-    irradiance += surfaceData.emission;
+    // irradiance += surfaceData.emission;
 
     // Update irradiance with Main Light
     // -----------------------------
     Light mainLight = GetMainLight(i);
-    irradiance += HairLighting(surfaceData, materialData, mainLight, tangent);
+    irradiance += HairLighting(surfaceData, materialData, mainLight, tangent, bitangent);
+    // irradiance += PhysicalBasedLighting(surfaceData, materialData, mainLight);
 
     // Update irradiance with Additional Lights
     // -----------------------------
-    half4 shadowMask = unity_ProbesOcclusion;
-    uint additionalLightCount = GetAdditionalLightsCount();
-    for (uint lightIndex = 0u; lightIndex < additionalLightCount; lightIndex++)
-    {
-        Light light = GetAdditionalLight(lightIndex, i.positionWS, shadowMask);
-        irradiance += HairLighting(surfaceData, materialData, light, tangent);
-    }
+    // half4 shadowMask = unity_ProbesOcclusion;
+    // uint additionalLightCount = GetAdditionalLightsCount();
+    // for (uint lightIndex = 0u; lightIndex < additionalLightCount; lightIndex++)
+    // {
+    //     Light light = GetAdditionalLight(lightIndex, i.positionWS, shadowMask);
+    //     irradiance += HairLighting(surfaceData, materialData, mainLight, tangent, bitangent);
+    // }
 
     return irradiance;
 }
