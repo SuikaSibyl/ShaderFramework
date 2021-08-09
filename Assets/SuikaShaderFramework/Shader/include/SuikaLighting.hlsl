@@ -109,28 +109,63 @@ half3 HairIrradiance(
 {
     // Init irradiance with GI
     // -----------------------------
-    half3 irradiance = half3(0,0,0);
-    // half3 irradiance = GlobalIllumination(surfaceData, materialData);
+    half3 irradiance = GlobalIllumination(surfaceData, materialData);
 
     // Update irradiance with Emission Lights
     // -----------------------------
-    // irradiance += surfaceData.emission;
+    irradiance += surfaceData.emission;
 
     // Update irradiance with Main Light
     // -----------------------------
     Light mainLight = GetMainLight(i);
     irradiance += HairLighting(surfaceData, materialData, mainLight, tangent, bitangent);
-    // irradiance += PhysicalBasedLighting(surfaceData, materialData, mainLight);
 
     // Update irradiance with Additional Lights
     // -----------------------------
-    // half4 shadowMask = unity_ProbesOcclusion;
-    // uint additionalLightCount = GetAdditionalLightsCount();
-    // for (uint lightIndex = 0u; lightIndex < additionalLightCount; lightIndex++)
-    // {
-    //     Light light = GetAdditionalLight(lightIndex, i.positionWS, shadowMask);
-    //     irradiance += HairLighting(surfaceData, materialData, mainLight, tangent, bitangent);
-    // }
+    half4 shadowMask = unity_ProbesOcclusion;
+    uint additionalLightCount = GetAdditionalLightsCount();
+    for (uint lightIndex = 0u; lightIndex < additionalLightCount; lightIndex++)
+    {
+        Light light = GetAdditionalLight(lightIndex, i.positionWS, shadowMask);
+        irradiance += HairLighting(surfaceData, materialData, light, tangent, bitangent);
+    }
+
+    return irradiance;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//                            Suika Lighting                                 //
+///////////////////////////////////////////////////////////////////////////////
+// ------------------------------------
+// Hair Irradiance
+// ------------------------------------
+half3 SkinIrradiance(
+    SuikaSurfaceData surfaceData,
+    SuikaMaterialData materialData,
+    v2f i, half4 skinmap, sampler2D lutmap)
+{
+    // Init irradiance with GI
+    // -----------------------------
+    half3 irradiance = GlobalIllumination(surfaceData, materialData);
+
+    // Update irradiance with Emission Lights
+    // -----------------------------
+    irradiance += surfaceData.emission;
+
+    // Update irradiance with Main Light
+    // -----------------------------
+    Light mainLight = GetMainLight(i);
+    irradiance += SkinLighting(surfaceData, materialData, mainLight, skinmap, lutmap);
+
+    // Update irradiance with Additional Lights
+    // -----------------------------
+    half4 shadowMask = unity_ProbesOcclusion;
+    uint additionalLightCount = GetAdditionalLightsCount();
+    for (uint lightIndex = 0u; lightIndex < additionalLightCount; lightIndex++)
+    {
+        Light light = GetAdditionalLight(lightIndex, i.positionWS, shadowMask);
+        irradiance += SkinLighting(surfaceData, materialData, light, skinmap, lutmap);
+    }
 
     return irradiance;
 }

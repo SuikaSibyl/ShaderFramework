@@ -12,6 +12,9 @@
 // =============================================================
 // =============================================================
 
+///////////////////////////////////////////////////////////////////////////////
+//                             Basic Lit Terms                               //
+///////////////////////////////////////////////////////////////////////////////
 half3 fresnelSchlick(float cosTheta, half3 F0)
 {
     return F0 + (1.0 - F0) * pow(1.0 - cosTheta, 5.0);
@@ -117,6 +120,7 @@ out half3 diffuseOut, out half3 specularOut, out bool lighted)
         specularOut = diffuseOut = half3(0.0, 0.0, 0.0);
         return;
     }
+    // Get Radiance
     half3 colorAttenuate = attenuation * NoL * lightColor;
     specularOut = colorAttenuate * anisotropicLobe(precomputeGGX, normal, eyeVector, eyeLightDir, specular, NoL, f90, anisotropicT, anisotropicB, anisotropy);
     diffuseOut = colorAttenuate * diffuse;
@@ -125,11 +129,12 @@ out half3 diffuseOut, out half3 specularOut, out bool lighted)
 half3 computeLightSSS(
 const in float dotNL, const in float attenuation, const in float thicknessFactor, 
 const in half3 translucencyColor, const in float translucencyFactor, 
-const in float shadowDistance, const in half3 diffuse, const in half3 lightColor) {
+const in float shadow, const in half3 diffuse, const in half3 lightColor) {
     float wrap = clamp(0.3 - dotNL, 0., 1.);
+    float shadowDistance = clamp(0.2-shadow*5, 0., 1.);
     float thickness = max(0.0, shadowDistance / max(0.001, thicknessFactor));
-          thickness = 2;
     float finalAttenuation = translucencyFactor * attenuation * wrap;
     return finalAttenuation * lightColor * diffuse * exp(-thickness / max(translucencyColor, half3(0.001,0.001,0.001)));
 }
+
 #endif
